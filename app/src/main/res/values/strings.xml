@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">BMI_calculator</string>
+    <string name="app_name">BMI Calculator</string>
+    <string name="details_format">Name: %1$s\nAge: %2$s</string>
+    <string name="bmi_format">BMI: %1$.2f\nCategory: %2$s</string>
+    <string name="all_fields_required">All fields required</string>
+    <string name="invalid_data">Invalid data received</string>
 </resources>
