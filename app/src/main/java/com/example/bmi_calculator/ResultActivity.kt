@@ -15,14 +15,18 @@ class ResultActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_result)
         
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+        val mainView = findViewById<android.view.View>(R.id.main)
+        if (mainView != null) {
+            ViewCompat.setOnApplyWindowInsetsListener(mainView) { v, insets ->
+                val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+                v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+                insets
+            }
         }
 
         val tvDetails = findViewById<TextView>(R.id.tvDetails)
         val tvBMI = findViewById<TextView>(R.id.tvBMI)
+        val tvCategory = findViewById<TextView>(R.id.tvCategory)
         val btnBack = findViewById<Button>(R.id.btnBack)
 
         btnBack.setOnClickListener {
@@ -41,31 +45,17 @@ class ResultActivity : AppCompatActivity() {
             val heightM = heightCm / 100
             val bmi = weight / (heightM * heightM)
 
-            val category: String
-            val color: Int
-
-            when {
-                bmi < 18.5 -> {
-                    category = "Underweight"
-                    color = Color.BLUE
-                }
-                bmi < 25 -> {
-                    category = "Normal"
-                    color = Color.parseColor("#4CAF50") // Green
-                }
-                bmi < 30 -> {
-                    category = "Overweight"
-                    color = Color.parseColor("#FF9800") // Orange
-                }
-                else -> {
-                    category = "Obese"
-                    color = Color.RED
-                }
+            val (category, color) = when {
+                bmi < 18.5 -> "Underweight" to Color.BLUE
+                bmi < 25 -> "Normal Weight" to Color.parseColor("#4CAF50") // Green
+                bmi < 30 -> "Overweight" to Color.parseColor("#FF9800") // Orange
+                else -> "Obese" to Color.RED
             }
 
             tvDetails.text = getString(R.string.details_format, name, age)
-            tvBMI.text = getString(R.string.bmi_format, bmi, category)
-            tvBMI.setTextColor(color)
+            tvBMI.text = "%.1f".format(bmi)
+            tvCategory.text = category
+            tvCategory.setTextColor(color)
         } else {
             tvBMI.text = getString(R.string.invalid_data)
         }
