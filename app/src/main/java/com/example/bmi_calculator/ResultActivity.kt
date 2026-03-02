@@ -2,6 +2,7 @@ package com.example.bmi_calculator
 
 import android.graphics.Color
 import android.os.Bundle
+import android.widget.Button
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -14,8 +15,7 @@ class ResultActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_result)
         
-        val mainView = findViewById<android.view.View>(R.id.main)
-        ViewCompat.setOnApplyWindowInsetsListener(mainView) { v, insets ->
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
@@ -23,6 +23,11 @@ class ResultActivity : AppCompatActivity() {
 
         val tvDetails = findViewById<TextView>(R.id.tvDetails)
         val tvBMI = findViewById<TextView>(R.id.tvBMI)
+        val btnBack = findViewById<Button>(R.id.btnBack)
+
+        btnBack.setOnClickListener {
+            finish()
+        }
 
         val name = intent.getStringExtra("name") ?: ""
         val age = intent.getStringExtra("age") ?: ""

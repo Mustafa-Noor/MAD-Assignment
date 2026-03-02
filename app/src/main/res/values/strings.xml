@@ -4,4 +4,13 @@
     <string name="bmi_format">BMI: %1$.2f\nCategory: %2$s</string>
     <string name="all_fields_required">All fields required</string>
     <string name="invalid_data">Invalid data received</string>
+    <string name="error_name_required">Name is required</string>
+    <string name="error_name_short">Name is too short</string>
+    <string name="error_age_required">Age is required</string>
+    <string name="error_age_range">Enter a valid age (1-120)</string>
+    <string name="error_height_required">Height is required</string>
+    <string name="error_height_range">Enter a valid height (50-250 cm)</string>
+    <string name="error_weight_required">Weight is required</string>
+    <string name="error_weight_range">Enter a valid weight (2-500 kg)</string>
+    <string name="back">Back</string>
 </resources>
