@@ -90,7 +90,7 @@ Add screenshots here (optional):
 
 ## Course Information
 
-- **Student**: Mustafa
+- **Students**: Mustafa (2023-CS-17) & Talha (2023-CS-169)
 - **Course**: Mobile Application Development
 - **Instructor**: Rabeeya Saleem
 - **Semester**: 6
