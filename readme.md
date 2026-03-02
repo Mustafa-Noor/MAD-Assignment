@@ -1,82 +1,97 @@
-📱 Mobile Application Development (MAD) Assignment
+# BMI Calculator (MAD Assignment)
 
-👨‍🎓 Student Information
+A simple Android BMI (Body Mass Index) calculator built with **Kotlin** and **XML layouts**. The app collects basic profile details, calculates BMI using metric units, and shows the BMI category on a separate result screen.
 
-Name: Mustafa
+## App Flow
 
-Course: Mobile Application Development
+1. **Main screen**: enter **Full Name**, **Age**, **Height (cm)**, and **Weight (kg)**.
+2. Tap **Calculate BMI**.
+3. **Result screen**: shows BMI (1 decimal place) + category, with a button to calculate again.
 
-Instructor: [Rabeeya Saleem]
+## Features
 
-Assignment No: [1]
+- Clean UI using Material Components
+- Input validation with helpful error messages
+- BMI calculation using metric units (cm/kg)
+- Category highlighting on the result screen
+- Data is processed locally (not stored)
 
-Semester: [6th]
+## Input Validation Rules
 
-📖 Project Description
+The app validates input before navigating to the result screen:
 
-This project is developed as part of the Mobile Application Development course.
-The purpose of this application is to [briefly explain what your app does — e.g., calculate discounts, manage tasks, perform arithmetic operations, etc.].
+- **Name**: required, at least 2 characters
+- **Age**: 1–120
+- **Height**: 50–250 cm
+- **Weight**: 2–500 kg
 
-The app is built using Android Studio and developed in [Kotlin / Java].
+## BMI Calculation
 
-🎯 Objectives
+Height is entered in **cm** and converted to **meters**.
 
-To understand Android Activity lifecycle.
+Plain formula:
 
-To implement UI using XML layouts.
+BMI = weight(kg) / (height(m) × height(m))
 
-To handle user input.
+$$\text{BMI} = \frac{\text{weight (kg)}}{\text{height (m)}^2}$$
 
-To perform basic logic and display results.
+BMI categories used:
 
-To practice event handling using button click listeners.
+- **Underweight**: < 18.5
+- **Normal Weight**: 18.5 – 24.9
+- **Overweight**: 25.0 – 29.9
+- **Obese**: ≥ 30.0
 
-🛠️ Tools & Technologies Used
+## Tech Stack
 
-Android Studio
+- **Language**: Kotlin
+- **UI**: XML layouts + Material Components
+- **Architecture**: Activities + Intents (MainActivity → ResultActivity)
+- **Build System**: Gradle (Kotlin DSL)
+- **Min SDK**: 24
 
-Kotlin / Java
+## Getting Started
 
-XML (UI Design)
+### Prerequisites
 
-Android SDK
+- Android Studio (recent version)
+- JDK 11 (as configured in Gradle)
+- Android SDK / Emulator or a physical Android device
 
-📂 Project Structure
+### Run in Android Studio
 
-MainActivity.kt – Handles application logic.
+1. Open Android Studio
+2. Select **Open** and choose the project folder
+3. Let Gradle sync complete
+4. Select an emulator/device
+5. Click **Run**
 
-activity_main.xml – User Interface design.
+### Build from the Command Line (Windows)
 
-AndroidManifest.xml – App configuration.
+From the project root:
 
-🚀 Features
+- Debug APK: `gradlew.bat assembleDebug`
+- Unit tests: `gradlew.bat test`
 
-User-friendly interface.
+## Project Structure (Key Files)
 
-Takes user input.
+- app/src/main/java/com/example/bmi_calculator/MainActivity.kt
+- app/src/main/java/com/example/bmi_calculator/ResultActivity.kt
+- app/src/main/res/layout/activity_main.xml
+- app/src/main/res/layout/activity_result.xml
+- app/src/main/AndroidManifest.xml
 
-Performs required calculations.
+## Screenshots
 
-Displays results dynamically.
+Add screenshots here (optional):
 
-▶️ How to Run the Project
+- Main Screen
+- Result Screen
 
-Open Android Studio.
+## Course Information
 
-Click on Open Project.
-
-Select the project folder.
-
-Connect an emulator or Android device.
-
-Click Run.
-
-📸 Screenshots
-
-(Add screenshots here if required)
-
-✅ Conclusion
-
-This assignment helped in understanding the fundamentals of Android development, including UI design, event handling, and implementing application logic.
-
-If you tell me what your specific MAD assignment is (calculator, login system, discount app, etc.), I can customize this README exactly for your project.
+- **Student**: Mustafa
+- **Course**: Mobile Application Development
+- **Instructor**: Rabeeya Saleem
+- **Semester**: 6
+- **Assignment**: 1
